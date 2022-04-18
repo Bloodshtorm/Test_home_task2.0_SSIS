@@ -1,0 +1,946 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/17/2022 1:06:23 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-6OF33FP"
+  DTS:CreatorName="DESKTOP-6OF33FP\sssss"
+  DTS:DTSID="{84BA00CA-69BE-49D6-A50A-AAC425683CCC}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="1049"
+  DTS:ObjectName="MrrFactSalesPerson"
+  DTS:PackageType="5"
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{0BA60E64-52A6-4F20-A019-17F3B519527C}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.AdventureWorks2019]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{3E4B2441-B1BE-4150-886D-11AEA481E19F}"
+      DTS:ObjectName="localhost.AdventureWorks2019">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=AdventureWorks2019;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.dwh]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{4AFAE451-D1D1-46BA-9059-157E63D9674E}"
+      DTS:ObjectName="localhost.dwh">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=dwh;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.mrr]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{483C4ACD-FD7B-4437-BE0F-A43038F09272}"
+      DTS:ObjectName="localhost.mrr">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=mrr;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A25FFA10-AECD-47C5-860A-B1FBEC083943}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="MrrFactSalesPersonMaxModifiedDate">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\MrrDimSalesPerson"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Задача потока данных"
+      DTS:DTSID="{4DDBBAF1-FDD1-4EE9-9906-A891623EC2FF}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="MrrDimSalesPerson"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:EventHandlers>
+        <DTS:EventHandler
+          DTS:refId="Package\MrrDimSalesPerson.EventHandlers[OnError]"
+          DTS:CreationName="OnError"
+          DTS:DTSID="{3FB99CE1-30D1-4DB7-A969-80C9AD5B9D6B}"
+          DTS:EventID="0"
+          DTS:EventName="OnError"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="Свойство распространения события"
+              DTS:DTSID="{C1ABB638-01AF-43F8-BAA3-95EAB5C70F61}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables />
+        </DTS:EventHandler>
+        <DTS:EventHandler
+          DTS:refId="Package\MrrDimSalesPerson.EventHandlers[OnInformation]"
+          DTS:CreationName="OnInformation"
+          DTS:DTSID="{52474262-31FA-4B6B-8915-0F7644C5ED27}"
+          DTS:EventID="-2147481950"
+          DTS:EventName="OnInformation"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="Свойство распространения события"
+              DTS:DTSID="{D070FBBE-5BF4-4BE5-ACF3-3C4E1F1F6A77}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables />
+        </DTS:EventHandler>
+      </DTS:EventHandlers>
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Источник &quot;OLE DB&quot;;Корпорация Майкрософт. Microsoft SQL Server. (C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support;7"
+              description="Источник &quot;OLE DB&quot;"
+              name="AdventureWorks2019SalesPerson"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Время ожидания команды, в секундах. Величина 0 означает неограниченное время ожидания."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Указывает имя объекта базы данных, используемого для открытия набора строк."
+                  name="OpenRowset">[Sales].[SalesPerson]</property>
+                <property
+                  dataType="System.String"
+                  description="Указывает переменную, содержащую имя объекта базы данных, используемого для открытия набора строк."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Команда SQL для выполнения."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        BusinessEntityID, TerritoryID, SalesQuota, Bonus, CommissionPct, SalesYTD, SalesLastYear, rowguid, ModifiedDate
+FROM            Sales.SalesPerson
+WHERE        (ModifiedDate &gt; ?)</property>
+                <property
+                  dataType="System.String"
+                  description="Переменная, содержащая команду SQL для выполнения."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает кодовую страницу столбца, используемую, когда недоступны сведения о кодовой странице из источника данных."
+                  name="DefaultCodePage">1251</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Вызывает безусловное использование значение свойства DefaultCodePage при описании символьных данных."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает используемый режим доступа к базе данных."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Сопоставления между параметрами в команде SQL и переменными."
+                  name="ParameterMapping">"0:Input",{A25FFA10-AECD-47C5-860A-B1FBEC083943};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.AdventureWorks2019]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.AdventureWorks2019]"
+                  description="Соединение OLE DB среды выполнения, используемое для доступа к базе данных."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Выход источника &quot;OLE DB&quot;]"
+                  name="Выход источника &quot;OLE DB&quot;">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[ModifiedDate]"
+                      lineageId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[ModifiedDate]"
+                      name="ModifiedDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[BusinessEntityID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[BusinessEntityID]"
+                      lineageId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[BusinessEntityID]"
+                      name="BusinessEntityID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[TerritoryID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[TerritoryID]"
+                      lineageId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[TerritoryID]"
+                      name="TerritoryID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[SalesQuota]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[SalesQuota]"
+                      lineageId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[SalesQuota]"
+                      name="SalesQuota"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Bonus]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[Bonus]"
+                      lineageId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Bonus]"
+                      name="Bonus"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[CommissionPct]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[CommissionPct]"
+                      lineageId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[CommissionPct]"
+                      name="CommissionPct"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[SalesYTD]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[SalesYTD]"
+                      lineageId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[SalesYTD]"
+                      name="SalesYTD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[SalesLastYear]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[SalesLastYear]"
+                      lineageId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[SalesLastYear]"
+                      name="SalesLastYear"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[rowguid]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[rowguid]"
+                      lineageId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[rowguid]"
+                      name="rowguid"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      name="ModifiedDate" />
+                    <externalMetadataColumn
+                      refId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[BusinessEntityID]"
+                      dataType="i4"
+                      name="BusinessEntityID" />
+                    <externalMetadataColumn
+                      refId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[TerritoryID]"
+                      dataType="i4"
+                      name="TerritoryID" />
+                    <externalMetadataColumn
+                      refId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[SalesQuota]"
+                      dataType="cy"
+                      name="SalesQuota" />
+                    <externalMetadataColumn
+                      refId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[Bonus]"
+                      dataType="cy"
+                      name="Bonus" />
+                    <externalMetadataColumn
+                      refId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[CommissionPct]"
+                      dataType="cy"
+                      name="CommissionPct" />
+                    <externalMetadataColumn
+                      refId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[SalesYTD]"
+                      dataType="cy"
+                      name="SalesYTD" />
+                    <externalMetadataColumn
+                      refId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[SalesLastYear]"
+                      dataType="cy"
+                      name="SalesLastYear" />
+                    <externalMetadataColumn
+                      refId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[rowguid]"
+                      dataType="guid"
+                      name="rowguid" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;]"
+                  isErrorOut="true"
+                  name="Вывод ошибок источника &quot;OLE DB&quot;">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[BusinessEntityID]"
+                      dataType="i4"
+                      lineageId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[BusinessEntityID]"
+                      name="BusinessEntityID" />
+                    <outputColumn
+                      refId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[TerritoryID]"
+                      dataType="i4"
+                      lineageId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[TerritoryID]"
+                      name="TerritoryID" />
+                    <outputColumn
+                      refId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[SalesQuota]"
+                      dataType="cy"
+                      lineageId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[SalesQuota]"
+                      name="SalesQuota" />
+                    <outputColumn
+                      refId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[Bonus]"
+                      dataType="cy"
+                      lineageId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[Bonus]"
+                      name="Bonus" />
+                    <outputColumn
+                      refId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[CommissionPct]"
+                      dataType="cy"
+                      lineageId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[CommissionPct]"
+                      name="CommissionPct" />
+                    <outputColumn
+                      refId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[SalesYTD]"
+                      dataType="cy"
+                      lineageId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[SalesYTD]"
+                      name="SalesYTD" />
+                    <outputColumn
+                      refId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[SalesLastYear]"
+                      dataType="cy"
+                      lineageId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[SalesLastYear]"
+                      name="SalesLastYear" />
+                    <outputColumn
+                      refId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[rowguid]"
+                      dataType="guid"
+                      lineageId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[rowguid]"
+                      name="rowguid" />
+                    <outputColumn
+                      refId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[ModifiedDate]"
+                      name="ModifiedDate" />
+                    <outputColumn
+                      refId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\MrrDimSalesPerson\MrrDimSalesPerson"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Назначение &quot;OLE DB&quot;;Корпорация Майкрософт. Microsoft SQL Server. (C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support;4"
+              description="Назначение &quot;OLE DB&quot;"
+              name="MrrDimSalesPerson"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Время ожидания команды, в секундах. Величина 0 означает неограниченное время ожидания."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Указывает имя объекта базы данных, используемого для открытия набора строк."
+                  name="OpenRowset">[MrrDimSalesPerson]</property>
+                <property
+                  dataType="System.String"
+                  description="Указывает переменную, содержащую имя объекта базы данных, используемого для открытия набора строк."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Команда SQL для выполнения."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает кодовую страницу столбца, используемую, когда недоступны сведения о кодовой странице из источника данных."
+                  name="DefaultCodePage">1251</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Вызывает безусловное использование значение свойства DefaultCodePage при описании символьных данных."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает используемый режим доступа к базе данных."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Указывает, должны ли значения в столбцах идентификаторов копироваться в назначение. Если свойство имеет значение false, значения в столбцах идентификаторов будут созданы автоматически в месте назначения. Применяется только в том случае, если включена быстрая загрузка."
+                  name="FastLoadKeepIdentity">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Указывает, будут ли в назначение вставляться значения NULL для столбцов, содержащих их. Значение false показывает, что если столбец имеет значение NULL, то в назначение будет вставлено его значение по умолчанию. Применяется только в случае, если включена быстрая загрузка."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Задает параметры быстрой загрузки. Применяется только в том случае, если включена быстрая загрузка."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Задает, когда выдаются сообщения о фиксации транзакции в ходе вставки данных. Значение 0 задает, что по окончании вставки данных будет выдано одно сообщение о фиксации транзакции. Применяется только в том случае, если включена быстрая загрузка."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\MrrDimSalesPerson\MrrDimSalesPerson.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.mrr]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.mrr]"
+                  description="Соединение OLE DB среды выполнения, используемое для доступа к базе данных."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\MrrDimSalesPerson\MrrDimSalesPerson.Inputs[Вход назначения &quot;OLE DB&quot;]"
+                  errorOrTruncationOperation="Вставить"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Вход назначения &quot;OLE DB&quot;">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\MrrDimSalesPerson\MrrDimSalesPerson.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[ModifiedDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ModifiedDate"
+                      externalMetadataColumnId="Package\MrrDimSalesPerson\MrrDimSalesPerson.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[ModifiedDate]"
+                      lineageId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[ModifiedDate]" />
+                    <inputColumn
+                      refId="Package\MrrDimSalesPerson\MrrDimSalesPerson.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[BusinessEntityID]"
+                      cachedDataType="i4"
+                      cachedName="BusinessEntityID"
+                      externalMetadataColumnId="Package\MrrDimSalesPerson\MrrDimSalesPerson.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[BusinessEntityID]"
+                      lineageId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[BusinessEntityID]" />
+                    <inputColumn
+                      refId="Package\MrrDimSalesPerson\MrrDimSalesPerson.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[TerritoryID]"
+                      cachedDataType="i4"
+                      cachedName="TerritoryID"
+                      externalMetadataColumnId="Package\MrrDimSalesPerson\MrrDimSalesPerson.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[TerritoryID]"
+                      lineageId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[TerritoryID]" />
+                    <inputColumn
+                      refId="Package\MrrDimSalesPerson\MrrDimSalesPerson.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[SalesQuota]"
+                      cachedDataType="cy"
+                      cachedName="SalesQuota"
+                      externalMetadataColumnId="Package\MrrDimSalesPerson\MrrDimSalesPerson.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[SalesQuota]"
+                      lineageId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[SalesQuota]" />
+                    <inputColumn
+                      refId="Package\MrrDimSalesPerson\MrrDimSalesPerson.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[Bonus]"
+                      cachedDataType="cy"
+                      cachedName="Bonus"
+                      externalMetadataColumnId="Package\MrrDimSalesPerson\MrrDimSalesPerson.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[Bonus]"
+                      lineageId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Bonus]" />
+                    <inputColumn
+                      refId="Package\MrrDimSalesPerson\MrrDimSalesPerson.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[CommissionPct]"
+                      cachedDataType="cy"
+                      cachedName="CommissionPct"
+                      externalMetadataColumnId="Package\MrrDimSalesPerson\MrrDimSalesPerson.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[CommissionPct]"
+                      lineageId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[CommissionPct]" />
+                    <inputColumn
+                      refId="Package\MrrDimSalesPerson\MrrDimSalesPerson.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[SalesYTD]"
+                      cachedDataType="cy"
+                      cachedName="SalesYTD"
+                      externalMetadataColumnId="Package\MrrDimSalesPerson\MrrDimSalesPerson.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[SalesYTD]"
+                      lineageId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[SalesYTD]" />
+                    <inputColumn
+                      refId="Package\MrrDimSalesPerson\MrrDimSalesPerson.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[SalesLastYear]"
+                      cachedDataType="cy"
+                      cachedName="SalesLastYear"
+                      externalMetadataColumnId="Package\MrrDimSalesPerson\MrrDimSalesPerson.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[SalesLastYear]"
+                      lineageId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[SalesLastYear]" />
+                    <inputColumn
+                      refId="Package\MrrDimSalesPerson\MrrDimSalesPerson.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[rowguid]"
+                      cachedDataType="guid"
+                      cachedName="rowguid"
+                      externalMetadataColumnId="Package\MrrDimSalesPerson\MrrDimSalesPerson.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[rowguid]"
+                      lineageId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[rowguid]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\MrrDimSalesPerson\MrrDimSalesPerson.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      name="ModifiedDate" />
+                    <externalMetadataColumn
+                      refId="Package\MrrDimSalesPerson\MrrDimSalesPerson.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[BusinessEntityID]"
+                      dataType="i4"
+                      name="BusinessEntityID" />
+                    <externalMetadataColumn
+                      refId="Package\MrrDimSalesPerson\MrrDimSalesPerson.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[TerritoryID]"
+                      dataType="i4"
+                      name="TerritoryID" />
+                    <externalMetadataColumn
+                      refId="Package\MrrDimSalesPerson\MrrDimSalesPerson.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[SalesQuota]"
+                      dataType="cy"
+                      name="SalesQuota" />
+                    <externalMetadataColumn
+                      refId="Package\MrrDimSalesPerson\MrrDimSalesPerson.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[Bonus]"
+                      dataType="cy"
+                      name="Bonus" />
+                    <externalMetadataColumn
+                      refId="Package\MrrDimSalesPerson\MrrDimSalesPerson.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[CommissionPct]"
+                      dataType="cy"
+                      name="CommissionPct" />
+                    <externalMetadataColumn
+                      refId="Package\MrrDimSalesPerson\MrrDimSalesPerson.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[SalesYTD]"
+                      dataType="cy"
+                      name="SalesYTD" />
+                    <externalMetadataColumn
+                      refId="Package\MrrDimSalesPerson\MrrDimSalesPerson.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[SalesLastYear]"
+                      dataType="cy"
+                      name="SalesLastYear" />
+                    <externalMetadataColumn
+                      refId="Package\MrrDimSalesPerson\MrrDimSalesPerson.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[rowguid]"
+                      dataType="guid"
+                      name="rowguid" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\MrrDimSalesPerson\MrrDimSalesPerson.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Вывод ошибок назначения &quot;OLE DB&quot;"
+                  synchronousInputId="Package\MrrDimSalesPerson\MrrDimSalesPerson.Inputs[Вход назначения &quot;OLE DB&quot;]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\MrrDimSalesPerson\MrrDimSalesPerson.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\MrrDimSalesPerson\MrrDimSalesPerson.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\MrrDimSalesPerson\MrrDimSalesPerson.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\MrrDimSalesPerson\MrrDimSalesPerson.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\MrrDimSalesPerson.Paths[Выход источника &quot;OLE DB&quot;]"
+              endId="Package\MrrDimSalesPerson\MrrDimSalesPerson.Inputs[Вход назначения &quot;OLE DB&quot;]"
+              name="Выход источника &quot;OLE DB&quot;"
+              startId="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson.Outputs[Выход источника &quot;OLE DB&quot;]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\MrrDimSalesPersonMaxModifiedDate"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Задача &quot;Выполнение SQL&quot;"
+      DTS:DTSID="{9FE7A6D2-104A-4735-AD5F-3E1AD82B7E25}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="MrrDimSalesPersonMaxModifiedDate"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{4AFAE451-D1D1-46BA-9059-157E63D9674E}"
+          SQLTask:SqlStatementSource="SELECT TOP (1) max(ModifiedDate)&#xA;  FROM [dwh].[dbo].[DwhDimSalesPerson]"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::MrrFactSalesPersonMaxModifiedDate" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Ограничение]"
+      DTS:CreationName=""
+      DTS:DTSID="{5F860D1D-0079-4C61-8276-501DE9A5CB92}"
+      DTS:From="Package\MrrDimSalesPersonMaxModifiedDate"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Ограничение"
+      DTS:To="Package\MrrDimSalesPerson" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{768F4341-D2DC-4E13-8298-986DD411E86E}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="Свойство распространения события"
+          DTS:DTSID="{A81B0244-733F-4857-A8CC-C5F869BBC6F2}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Log_err"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Задача &quot;Выполнение SQL&quot;"
+          DTS:DTSID="{56422571-aa10-4e5e-949c-8ae3ce5dad18}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Log_err"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{483C4ACD-FD7B-4437-BE0F-A43038F09272}"
+              SQLTask:SqlStatementSource="INSERT INTO Log_err&#xA;           (PackageName&#xA;           ,TaskName&#xA;           ,DataTime&#xA;           ,Code&#xA;           ,Parametr1&#xA;           ,Parametr2&#xA;           ,Parametr3&#xA;           ,Parametr4&#xA;           ,Parametr5)&#xA;     VALUES&#xA;           (?,?,getDATE(),?,?,?,?,?,?)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::TaskName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="System::ErrorCode"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="System::ErrorDescription"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="System::CreationName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="System::FailedConfigurations"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="System::Propagate"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="System::SourceName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnInformation]"
+      DTS:CreationName="OnInformation"
+      DTS:DTSID="{24EF5ABD-DEB6-4C9C-B691-EB2596CD9996}"
+      DTS:EventID="-1"
+      DTS:EventName="OnInformation"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="Свойство распространения события"
+          DTS:DTSID="{B1674F5B-D528-4AD7-81B0-8C645884F83C}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnInformation]\Log_info"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Задача &quot;Выполнение SQL&quot;"
+          DTS:DTSID="{08cad64a-9ed1-4078-b0ef-dcd2bc313478}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Log_info"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{483C4ACD-FD7B-4437-BE0F-A43038F09272}"
+              SQLTask:SqlStatementSource="INSERT INTO dbo.Log_info&#xA;                         (PackageName, TaskName, DataTime, Code, Parametr1, Parametr2, Parametr3, Parametr4, Parametr5)&#xA;VALUES        (?, ?, getDATE(), ?, ?, ?, ?, ?, ?)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::TaskName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="System::ErrorCode"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="System::ErrorDescription"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="System::CreationName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="System::FailedConfigurations"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="System::Propagate"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="System::SourceName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--В данном разделе CDATA содержатся сведения о макете пакета. В данном разделе содержатся сведения о координатах (x,y), ширине и высоте.-->
+<!--В случае возникновения ошибки при редактировании этого раздела вручную его можно удалить. -->
+<!--Пакет можно загрузить обычным образом, но прежние сведения о макете будут утеряны, и конструктор автоматически перераспределит элементы в области конструктора.-->
+<Objects
+  Version="8">
+  <!--Все приведенные ниже узлы будут содержать свойства, не влияющие на поведение среды выполнения.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="178,42"
+          Id="Package\MrrDimSalesPerson"
+          TopLeft="722,217" />
+        <NodeLayout
+          Size="263,42"
+          Id="Package\MrrDimSalesPersonMaxModifiedDate"
+          TopLeft="679,144" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Ограничение]"
+          TopLeft="811.25,186">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31"
+              Start="0,0"
+              End="0,23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="117,42"
+          Id="Package.EventHandlers[OnError]\Log_err"
+          TopLeft="695,205" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnInformation]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="121,42"
+          Id="Package.EventHandlers[OnInformation]\Log_info"
+          TopLeft="601,198" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\MrrDimSalesPerson">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="178,42"
+          Id="Package\MrrDimSalesPerson\MrrDimSalesPerson"
+          TopLeft="641,299" />
+        <NodeLayout
+          Size="247,42"
+          Id="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson"
+          TopLeft="314,103" />
+        <EdgeLayout
+          Id="Package\MrrDimSalesPerson.Paths[Выход источника &quot;OLE DB&quot;]"
+          TopLeft="437.5,145">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="292.5,154"
+              Start="0,0"
+              End="292.5,146.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,73" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,73"
+                    Point2="0,77"
+                    Point3="4,77" />
+                  <mssgle:LineSegment
+                    End="288.5,77" />
+                  <mssgle:CubicBezierSegment
+                    Point1="288.5,77"
+                    Point2="292.5,77"
+                    Point3="292.5,81" />
+                  <mssgle:LineSegment
+                    End="292.5,146.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\MrrDimSalesPerson\AdventureWorks2019SalesPerson">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\MrrDimSalesPerson\MrrDimSalesPerson">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

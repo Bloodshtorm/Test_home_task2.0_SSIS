@@ -1,0 +1,1060 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/17/2022 1:06:23 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-6OF33FP"
+  DTS:CreatorName="DESKTOP-6OF33FP\sssss"
+  DTS:DTSID="{23587F8E-F422-4B68-B7CB-A2A5C761FEC0}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="1049"
+  DTS:ObjectName="DwhDimPerson"
+  DTS:PackageType="5"
+  DTS:VersionBuild="30"
+  DTS:VersionGUID="{1C41A830-20D8-4DF8-8E9A-7EA36B06F052}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.AdventureWorks2019]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{66283D86-A3C9-4B9D-9190-F081125A968B}"
+      DTS:ObjectName="localhost.AdventureWorks2019">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=AdventureWorks2019;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.dwh]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{FE78FB96-FDB1-4EBB-B2BE-D0ECAC9D8246}"
+      DTS:ObjectName="localhost.dwh">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=dwh;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.mrr]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{20A90DD7-AACE-4140-A141-4A2B18BCCFF1}"
+      DTS:ObjectName="localhost.mrr">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=mrr;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.stg]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{47B2EC87-41B5-40B6-A176-25E446F13ECD}"
+      DTS:ObjectName="localhost.stg">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=stg;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9AAEC138-E341-4731-829D-4B403F53FEA2}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="MrrDimPerson">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8C4FA257-8BDA-44FD-B752-00767A25C804}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="MrrFactSalesPersonMaxModifiedDate">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DwhDimPerson"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Задача потока данных"
+      DTS:DTSID="{B5B56AE4-80B5-415F-871B-24BCF7A22C86}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DwhDimPerson"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:EventHandlers>
+        <DTS:EventHandler
+          DTS:refId="Package\DwhDimPerson.EventHandlers[OnError]"
+          DTS:CreationName="OnError"
+          DTS:DTSID="{C32B363D-E353-4CB7-9E1C-AA27EB246B31}"
+          DTS:EventID="0"
+          DTS:EventName="OnError"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="Свойство распространения события"
+              DTS:DTSID="{E7FBCB6E-B9E4-45D6-9B9A-8599B52C5F82}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables />
+        </DTS:EventHandler>
+        <DTS:EventHandler
+          DTS:refId="Package\DwhDimPerson.EventHandlers[OnInformation]"
+          DTS:CreationName="OnInformation"
+          DTS:DTSID="{5956F1E1-6749-4BFF-A59E-6B80F5C8E6FB}"
+          DTS:EventID="-2147481950"
+          DTS:EventName="OnInformation"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="Свойство распространения события"
+              DTS:DTSID="{EFF82B3E-3F49-4221-8B99-55DC0BC1B3A6}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables />
+        </DTS:EventHandler>
+      </DTS:EventHandlers>
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DwhDimPerson\DwhDimPerson"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Назначение &quot;OLE DB&quot;;Корпорация Майкрософт. Microsoft SQL Server. (C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support;4"
+              description="Назначение &quot;OLE DB&quot;"
+              name="DwhDimPerson"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Время ожидания команды, в секундах. Величина 0 означает неограниченное время ожидания."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Указывает имя объекта базы данных, используемого для открытия набора строк."
+                  name="OpenRowset">[DwhDimPerson]</property>
+                <property
+                  dataType="System.String"
+                  description="Указывает переменную, содержащую имя объекта базы данных, используемого для открытия набора строк."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Команда SQL для выполнения."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает кодовую страницу столбца, используемую, когда недоступны сведения о кодовой странице из источника данных."
+                  name="DefaultCodePage">1251</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Вызывает безусловное использование значение свойства DefaultCodePage при описании символьных данных."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает используемый режим доступа к базе данных."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Указывает, должны ли значения в столбцах идентификаторов копироваться в назначение. Если свойство имеет значение false, значения в столбцах идентификаторов будут созданы автоматически в месте назначения. Применяется только в том случае, если включена быстрая загрузка."
+                  name="FastLoadKeepIdentity">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Указывает, будут ли в назначение вставляться значения NULL для столбцов, содержащих их. Значение false показывает, что если столбец имеет значение NULL, то в назначение будет вставлено его значение по умолчанию. Применяется только в случае, если включена быстрая загрузка."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Задает параметры быстрой загрузки. Применяется только в том случае, если включена быстрая загрузка."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Задает, когда выдаются сообщения о фиксации транзакции в ходе вставки данных. Значение 0 задает, что по окончании вставки данных будет выдано одно сообщение о фиксации транзакции. Применяется только в том случае, если включена быстрая загрузка."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DwhDimPerson\DwhDimPerson.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.dwh]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.dwh]"
+                  description="Соединение OLE DB среды выполнения, используемое для доступа к базе данных."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DwhDimPerson\DwhDimPerson.Inputs[Вход назначения &quot;OLE DB&quot;]"
+                  errorOrTruncationOperation="Вставить"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Вход назначения &quot;OLE DB&quot;">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DwhDimPerson\DwhDimPerson.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[ModifiedDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ModifiedDate"
+                      externalMetadataColumnId="Package\DwhDimPerson\DwhDimPerson.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[ModifiedDate]"
+                      lineageId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[ModifiedDate]" />
+                    <inputColumn
+                      refId="Package\DwhDimPerson\DwhDimPerson.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[BusinessEntityID]"
+                      cachedDataType="i4"
+                      cachedName="BusinessEntityID"
+                      externalMetadataColumnId="Package\DwhDimPerson\DwhDimPerson.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[BusinessEntityID]"
+                      lineageId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[BusinessEntityID]" />
+                    <inputColumn
+                      refId="Package\DwhDimPerson\DwhDimPerson.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[rowguid]"
+                      cachedDataType="guid"
+                      cachedName="rowguid"
+                      externalMetadataColumnId="Package\DwhDimPerson\DwhDimPerson.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[rowguid]"
+                      lineageId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[rowguid]" />
+                    <inputColumn
+                      refId="Package\DwhDimPerson\DwhDimPerson.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[PersonType]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="PersonType"
+                      externalMetadataColumnId="Package\DwhDimPerson\DwhDimPerson.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[PersonType]"
+                      lineageId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[PersonType]" />
+                    <inputColumn
+                      refId="Package\DwhDimPerson\DwhDimPerson.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[NameStyle]"
+                      cachedDataType="bool"
+                      cachedName="NameStyle"
+                      externalMetadataColumnId="Package\DwhDimPerson\DwhDimPerson.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[NameStyle]"
+                      lineageId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[NameStyle]" />
+                    <inputColumn
+                      refId="Package\DwhDimPerson\DwhDimPerson.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[Title]"
+                      cachedDataType="wstr"
+                      cachedLength="8"
+                      cachedName="Title"
+                      externalMetadataColumnId="Package\DwhDimPerson\DwhDimPerson.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[Title]"
+                      lineageId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Title]" />
+                    <inputColumn
+                      refId="Package\DwhDimPerson\DwhDimPerson.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="FirstName"
+                      externalMetadataColumnId="Package\DwhDimPerson\DwhDimPerson.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[FirstName]"
+                      lineageId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[FirstName]" />
+                    <inputColumn
+                      refId="Package\DwhDimPerson\DwhDimPerson.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[MiddleName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="MiddleName"
+                      externalMetadataColumnId="Package\DwhDimPerson\DwhDimPerson.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[MiddleName]"
+                      lineageId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[MiddleName]" />
+                    <inputColumn
+                      refId="Package\DwhDimPerson\DwhDimPerson.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[LastName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="LastName"
+                      externalMetadataColumnId="Package\DwhDimPerson\DwhDimPerson.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[LastName]"
+                      lineageId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[LastName]" />
+                    <inputColumn
+                      refId="Package\DwhDimPerson\DwhDimPerson.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[Suffix]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Suffix"
+                      externalMetadataColumnId="Package\DwhDimPerson\DwhDimPerson.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[Suffix]"
+                      lineageId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Suffix]" />
+                    <inputColumn
+                      refId="Package\DwhDimPerson\DwhDimPerson.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[EmailPromotion]"
+                      cachedDataType="i4"
+                      cachedName="EmailPromotion"
+                      externalMetadataColumnId="Package\DwhDimPerson\DwhDimPerson.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[EmailPromotion]"
+                      lineageId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[EmailPromotion]" />
+                    <inputColumn
+                      refId="Package\DwhDimPerson\DwhDimPerson.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[AdditionalContactInfo]"
+                      cachedDataType="nText"
+                      cachedName="AdditionalContactInfo"
+                      externalMetadataColumnId="Package\DwhDimPerson\DwhDimPerson.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[AdditionalContactInfo]"
+                      lineageId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[AdditionalContactInfo]" />
+                    <inputColumn
+                      refId="Package\DwhDimPerson\DwhDimPerson.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[Demographics]"
+                      cachedDataType="nText"
+                      cachedName="Demographics"
+                      externalMetadataColumnId="Package\DwhDimPerson\DwhDimPerson.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[Demographics]"
+                      lineageId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Demographics]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DwhDimPerson\DwhDimPerson.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      name="ModifiedDate" />
+                    <externalMetadataColumn
+                      refId="Package\DwhDimPerson\DwhDimPerson.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[BusinessEntityID]"
+                      dataType="i4"
+                      name="BusinessEntityID" />
+                    <externalMetadataColumn
+                      refId="Package\DwhDimPerson\DwhDimPerson.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[rowguid]"
+                      dataType="guid"
+                      name="rowguid" />
+                    <externalMetadataColumn
+                      refId="Package\DwhDimPerson\DwhDimPerson.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[PersonType]"
+                      dataType="wstr"
+                      length="2"
+                      name="PersonType" />
+                    <externalMetadataColumn
+                      refId="Package\DwhDimPerson\DwhDimPerson.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[NameStyle]"
+                      dataType="bool"
+                      name="NameStyle" />
+                    <externalMetadataColumn
+                      refId="Package\DwhDimPerson\DwhDimPerson.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[Title]"
+                      dataType="wstr"
+                      length="8"
+                      name="Title" />
+                    <externalMetadataColumn
+                      refId="Package\DwhDimPerson\DwhDimPerson.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[FirstName]"
+                      dataType="wstr"
+                      length="50"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\DwhDimPerson\DwhDimPerson.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[MiddleName]"
+                      dataType="wstr"
+                      length="50"
+                      name="MiddleName" />
+                    <externalMetadataColumn
+                      refId="Package\DwhDimPerson\DwhDimPerson.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[LastName]"
+                      dataType="wstr"
+                      length="50"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\DwhDimPerson\DwhDimPerson.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[Suffix]"
+                      dataType="wstr"
+                      length="10"
+                      name="Suffix" />
+                    <externalMetadataColumn
+                      refId="Package\DwhDimPerson\DwhDimPerson.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[EmailPromotion]"
+                      dataType="i4"
+                      name="EmailPromotion" />
+                    <externalMetadataColumn
+                      refId="Package\DwhDimPerson\DwhDimPerson.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[AdditionalContactInfo]"
+                      dataType="nText"
+                      name="AdditionalContactInfo" />
+                    <externalMetadataColumn
+                      refId="Package\DwhDimPerson\DwhDimPerson.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[Demographics]"
+                      dataType="nText"
+                      name="Demographics" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DwhDimPerson\DwhDimPerson.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Вывод ошибок назначения &quot;OLE DB&quot;"
+                  synchronousInputId="Package\DwhDimPerson\DwhDimPerson.Inputs[Вход назначения &quot;OLE DB&quot;]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DwhDimPerson\DwhDimPerson.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DwhDimPerson\DwhDimPerson.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DwhDimPerson\DwhDimPerson.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DwhDimPerson\DwhDimPerson.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DwhDimPerson\StgDimPerson"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Источник &quot;OLE DB&quot;;Корпорация Майкрософт. Microsoft SQL Server. (C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support;7"
+              description="Источник &quot;OLE DB&quot;"
+              name="StgDimPerson"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Время ожидания команды, в секундах. Величина 0 означает неограниченное время ожидания."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Указывает имя объекта базы данных, используемого для открытия набора строк."
+                  name="OpenRowset">[dbo].[StgDimPerson]</property>
+                <property
+                  dataType="System.String"
+                  description="Указывает переменную, содержащую имя объекта базы данных, используемого для открытия набора строк."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Команда SQL для выполнения."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        *
+FROM           Person.Person
+WHERE        (ModifiedDate &gt; ?)</property>
+                <property
+                  dataType="System.String"
+                  description="Переменная, содержащая команду SQL для выполнения."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает кодовую страницу столбца, используемую, когда недоступны сведения о кодовой странице из источника данных."
+                  name="DefaultCodePage">1251</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Вызывает безусловное использование значение свойства DefaultCodePage при описании символьных данных."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает используемый режим доступа к базе данных."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Сопоставления между параметрами в команде SQL и переменными."
+                  name="ParameterMapping">"0:Input",{9AAEC138-E341-4731-829D-4B403F53FEA2};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DwhDimPerson\StgDimPerson.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.stg]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.stg]"
+                  description="Соединение OLE DB среды выполнения, используемое для доступа к базе данных."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;]"
+                  name="Выход источника &quot;OLE DB&quot;">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[ModifiedDate]"
+                      lineageId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[ModifiedDate]"
+                      name="ModifiedDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[BusinessEntityID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[BusinessEntityID]"
+                      lineageId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[BusinessEntityID]"
+                      name="BusinessEntityID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[rowguid]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[rowguid]"
+                      lineageId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[rowguid]"
+                      name="rowguid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[PersonType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[PersonType]"
+                      length="2"
+                      lineageId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[PersonType]"
+                      name="PersonType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[NameStyle]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[NameStyle]"
+                      lineageId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[NameStyle]"
+                      name="NameStyle"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Title]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[Title]"
+                      length="8"
+                      lineageId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Title]"
+                      name="Title"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[FirstName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[FirstName]"
+                      length="50"
+                      lineageId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[FirstName]"
+                      name="FirstName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[MiddleName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[MiddleName]"
+                      length="50"
+                      lineageId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[MiddleName]"
+                      name="MiddleName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[LastName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[LastName]"
+                      length="50"
+                      lineageId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[LastName]"
+                      name="LastName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Suffix]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[Suffix]"
+                      length="10"
+                      lineageId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Suffix]"
+                      name="Suffix"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[EmailPromotion]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[EmailPromotion]"
+                      lineageId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[EmailPromotion]"
+                      name="EmailPromotion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[AdditionalContactInfo]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[AdditionalContactInfo]"
+                      lineageId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[AdditionalContactInfo]"
+                      name="AdditionalContactInfo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Demographics]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[Demographics]"
+                      lineageId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Demographics]"
+                      name="Demographics"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      name="ModifiedDate" />
+                    <externalMetadataColumn
+                      refId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[BusinessEntityID]"
+                      dataType="i4"
+                      name="BusinessEntityID" />
+                    <externalMetadataColumn
+                      refId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[rowguid]"
+                      dataType="guid"
+                      name="rowguid" />
+                    <externalMetadataColumn
+                      refId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[PersonType]"
+                      dataType="wstr"
+                      length="2"
+                      name="PersonType" />
+                    <externalMetadataColumn
+                      refId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[NameStyle]"
+                      dataType="bool"
+                      name="NameStyle" />
+                    <externalMetadataColumn
+                      refId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[Title]"
+                      dataType="wstr"
+                      length="8"
+                      name="Title" />
+                    <externalMetadataColumn
+                      refId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[FirstName]"
+                      dataType="wstr"
+                      length="50"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[MiddleName]"
+                      dataType="wstr"
+                      length="50"
+                      name="MiddleName" />
+                    <externalMetadataColumn
+                      refId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[LastName]"
+                      dataType="wstr"
+                      length="50"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[Suffix]"
+                      dataType="wstr"
+                      length="10"
+                      name="Suffix" />
+                    <externalMetadataColumn
+                      refId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[EmailPromotion]"
+                      dataType="i4"
+                      name="EmailPromotion" />
+                    <externalMetadataColumn
+                      refId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[AdditionalContactInfo]"
+                      dataType="nText"
+                      name="AdditionalContactInfo" />
+                    <externalMetadataColumn
+                      refId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[Demographics]"
+                      dataType="nText"
+                      name="Demographics" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DwhDimPerson\StgDimPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;]"
+                  isErrorOut="true"
+                  name="Вывод ошибок источника &quot;OLE DB&quot;">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DwhDimPerson\StgDimPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[BusinessEntityID]"
+                      dataType="i4"
+                      lineageId="Package\DwhDimPerson\StgDimPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[BusinessEntityID]"
+                      name="BusinessEntityID" />
+                    <outputColumn
+                      refId="Package\DwhDimPerson\StgDimPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[PersonType]"
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\DwhDimPerson\StgDimPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[PersonType]"
+                      name="PersonType" />
+                    <outputColumn
+                      refId="Package\DwhDimPerson\StgDimPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[NameStyle]"
+                      dataType="bool"
+                      lineageId="Package\DwhDimPerson\StgDimPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[NameStyle]"
+                      name="NameStyle" />
+                    <outputColumn
+                      refId="Package\DwhDimPerson\StgDimPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[Title]"
+                      dataType="wstr"
+                      length="8"
+                      lineageId="Package\DwhDimPerson\StgDimPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[Title]"
+                      name="Title" />
+                    <outputColumn
+                      refId="Package\DwhDimPerson\StgDimPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[FirstName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DwhDimPerson\StgDimPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[FirstName]"
+                      name="FirstName" />
+                    <outputColumn
+                      refId="Package\DwhDimPerson\StgDimPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[MiddleName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DwhDimPerson\StgDimPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[MiddleName]"
+                      name="MiddleName" />
+                    <outputColumn
+                      refId="Package\DwhDimPerson\StgDimPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[LastName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DwhDimPerson\StgDimPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[LastName]"
+                      name="LastName" />
+                    <outputColumn
+                      refId="Package\DwhDimPerson\StgDimPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[Suffix]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\DwhDimPerson\StgDimPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[Suffix]"
+                      name="Suffix" />
+                    <outputColumn
+                      refId="Package\DwhDimPerson\StgDimPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[EmailPromotion]"
+                      dataType="i4"
+                      lineageId="Package\DwhDimPerson\StgDimPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[EmailPromotion]"
+                      name="EmailPromotion" />
+                    <outputColumn
+                      refId="Package\DwhDimPerson\StgDimPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[AdditionalContactInfo]"
+                      dataType="nText"
+                      lineageId="Package\DwhDimPerson\StgDimPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[AdditionalContactInfo]"
+                      name="AdditionalContactInfo" />
+                    <outputColumn
+                      refId="Package\DwhDimPerson\StgDimPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[Demographics]"
+                      dataType="nText"
+                      lineageId="Package\DwhDimPerson\StgDimPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[Demographics]"
+                      name="Demographics" />
+                    <outputColumn
+                      refId="Package\DwhDimPerson\StgDimPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[rowguid]"
+                      dataType="guid"
+                      lineageId="Package\DwhDimPerson\StgDimPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[rowguid]"
+                      name="rowguid" />
+                    <outputColumn
+                      refId="Package\DwhDimPerson\StgDimPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DwhDimPerson\StgDimPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[ModifiedDate]"
+                      name="ModifiedDate" />
+                    <outputColumn
+                      refId="Package\DwhDimPerson\StgDimPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DwhDimPerson\StgDimPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DwhDimPerson\StgDimPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DwhDimPerson\StgDimPerson.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DwhDimPerson.Paths[Выход источника &quot;OLE DB&quot;]"
+              endId="Package\DwhDimPerson\DwhDimPerson.Inputs[Вход назначения &quot;OLE DB&quot;]"
+              name="Выход источника &quot;OLE DB&quot;"
+              startId="Package\DwhDimPerson\StgDimPerson.Outputs[Выход источника &quot;OLE DB&quot;]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{D15468F5-BD5A-423C-A340-4BA22D5CD14D}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="Свойство распространения события"
+          DTS:DTSID="{B03B1773-F821-46AA-A983-523917644283}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Log_err"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Задача &quot;Выполнение SQL&quot;"
+          DTS:DTSID="{0B113DED-41AE-4F3D-B003-D95E1C24B3FA}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Log_err"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{20A90DD7-AACE-4140-A141-4A2B18BCCFF1}"
+              SQLTask:SqlStatementSource="INSERT INTO Log_err&#xA;           (PackageName&#xA;           ,TaskName&#xA;           ,DataTime&#xA;           ,Code&#xA;           ,Parametr1&#xA;           ,Parametr2&#xA;           ,Parametr3&#xA;           ,Parametr4&#xA;           ,Parametr5)&#xA;     VALUES&#xA;           (?,?,getDATE(),?,?,?,?,?,?)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::TaskName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="System::ErrorCode"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="System::ErrorDescription"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="System::CreationName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="System::FailedConfigurations"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="System::Propagate"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="System::SourceName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnInformation]"
+      DTS:CreationName="OnInformation"
+      DTS:DTSID="{63DD343B-6BBE-415D-B548-C04C9D4842D6}"
+      DTS:EventID="-1"
+      DTS:EventName="OnInformation"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="Свойство распространения события"
+          DTS:DTSID="{2A3BDB87-C792-4625-BD6E-3C08517A6D39}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnInformation]\Log_info"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Задача &quot;Выполнение SQL&quot;"
+          DTS:DTSID="{A0D7842C-D9E2-43FE-89D2-33D09A0574DF}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Log_info"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{20A90DD7-AACE-4140-A141-4A2B18BCCFF1}"
+              SQLTask:SqlStatementSource="INSERT INTO dbo.Log_info&#xA;                         (PackageName, TaskName, DataTime, Code, Parametr1, Parametr2, Parametr3, Parametr4, Parametr5)&#xA;VALUES        (?, ?, getDATE(), ?, ?, ?, ?, ?, ?)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::TaskName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="System::ErrorCode"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="System::ErrorDescription"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="System::CreationName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="System::FailedConfigurations"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="System::Propagate"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="System::SourceName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--В данном разделе CDATA содержатся сведения о макете пакета. В данном разделе содержатся сведения о координатах (x,y), ширине и высоте.-->
+<!--В случае возникновения ошибки при редактировании этого раздела вручную его можно удалить. -->
+<!--Пакет можно загрузить обычным образом, но прежние сведения о макете будут утеряны, и конструктор автоматически перераспределит элементы в области конструктора.-->
+<Objects
+  Version="8">
+  <!--Все приведенные ниже узлы будут содержать свойства, не влияющие на поведение среды выполнения.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="155,42"
+          Id="Package\DwhDimPerson"
+          TopLeft="272,263" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="117,42"
+          Id="Package.EventHandlers[OnError]\Log_err"
+          TopLeft="695,205" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnInformation]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="121,42"
+          Id="Package.EventHandlers[OnInformation]\Log_info"
+          TopLeft="601,198" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\DwhDimPerson">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\DwhDimPerson\StgDimPerson"
+          TopLeft="318,107" />
+        <NodeLayout
+          Size="155,42"
+          Id="Package\DwhDimPerson\DwhDimPerson"
+          TopLeft="647,231" />
+        <EdgeLayout
+          Id="Package\DwhDimPerson.Paths[Выход источника &quot;OLE DB&quot;]"
+          TopLeft="393,149">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="331.5,82"
+              Start="0,0"
+              End="331.5,74.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37"
+                    Point2="0,41"
+                    Point3="4,41" />
+                  <mssgle:LineSegment
+                    End="327.5,41" />
+                  <mssgle:CubicBezierSegment
+                    Point1="327.5,41"
+                    Point2="331.5,41"
+                    Point3="331.5,45" />
+                  <mssgle:LineSegment
+                    End="331.5,74.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DwhDimPerson\DwhDimPerson">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DwhDimPerson\StgDimPerson">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
